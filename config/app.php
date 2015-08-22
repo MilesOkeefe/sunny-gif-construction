@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://sunny.local',
 
     /*
     |--------------------------------------------------------------------------
@@ -143,6 +143,11 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * misc
+        */
+        Skydiver\LaravelMaterializeCSS\MaterializeCSSServiceProvider::class
 
     ],
 

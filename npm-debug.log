@@ -1,0 +1,139 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--global',
+1 verbose cli   'notify-send' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose cache add [ 'notify-send', null ]
+6 verbose cache add name=undefined spec="notify-send" args=["notify-send",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'notify-send',
+7 verbose parsed url   path: 'notify-send',
+7 verbose parsed url   href: 'notify-send' }
+8 silly lockFile f005055b-notify-send notify-send
+9 verbose lock notify-send /home/vagrant/.npm/f005055b-notify-send.lock
+10 silly lockFile f005055b-notify-send notify-send
+11 silly lockFile f005055b-notify-send notify-send
+12 verbose addNamed [ 'notify-send', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 79290394-notify-send notify-send@
+15 verbose lock notify-send@ /home/vagrant/.npm/79290394-notify-send.lock
+16 silly addNameRange { name: 'notify-send', range: '*', hasData: false }
+17 verbose request where is /notify-send
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id aaa3f3cac7437020
+20 verbose url raw /notify-send
+21 verbose url resolving [ 'https://registry.npmjs.org/', './notify-send' ]
+22 verbose url resolved https://registry.npmjs.org/notify-send
+23 verbose request where is https://registry.npmjs.org/notify-send
+24 info trying registry request attempt 1 at 19:14:35
+25 verbose etag "DRKVKW6STYIGF72CIC6YLK8DW"
+26 http GET https://registry.npmjs.org/notify-send
+27 http 304 https://registry.npmjs.org/notify-send
+28 silly registry.get cb [ 304,
+28 silly registry.get   { date: 'Fri, 21 Aug 2015 19:14:35 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     etag: '"DRKVKW6STYIGF72CIC6YLK8DW"',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-lax1422-LAX',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1440184475.564350,VS0,VE75',
+28 silly registry.get     vary: 'Accept' } ]
+29 verbose etag https://registry.npmjs.org/notify-send from cache
+30 silly addNameRange number 2 { name: 'notify-send', range: '*', hasData: true }
+31 silly addNameRange versions [ 'notify-send', [ '0.1.0', '0.1.1', '0.1.2' ] ]
+32 verbose addNamed [ 'notify-send', '0.1.2' ]
+33 verbose addNamed [ '0.1.2', '0.1.2' ]
+34 silly lockFile 531de949-notify-send-0-1-2 notify-send@0.1.2
+35 verbose lock notify-send@0.1.2 /home/vagrant/.npm/531de949-notify-send-0-1-2.lock
+36 silly lockFile 531de949-notify-send-0-1-2 notify-send@0.1.2
+37 silly lockFile 531de949-notify-send-0-1-2 notify-send@0.1.2
+38 silly lockFile 79290394-notify-send notify-send@
+39 silly lockFile 79290394-notify-send notify-send@
+40 silly resolved [ { author:
+40 silly resolved      { name: 'Brian Noguchi',
+40 silly resolved        email: 'brian.noguchi@gmail.com',
+40 silly resolved        url: 'https://github.com/bnoguchi' },
+40 silly resolved     name: 'notify-send',
+40 silly resolved     description: 'Ubuntu growl-like notifications for node.js',
+40 silly resolved     version: '0.1.2',
+40 silly resolved     homepage: 'https://github.com/bnoguchi/node-notify-send',
+40 silly resolved     repository:
+40 silly resolved      { type: 'git',
+40 silly resolved        url: 'git://github.com/bnoguchi/node-notify-send.git' },
+40 silly resolved     main: './lib/notify-send.js',
+40 silly resolved     scripts: { test: 'make test' },
+40 silly resolved     engines: { node: '>=0.4.0' },
+40 silly resolved     dependencies: {},
+40 silly resolved     devDependencies: {},
+40 silly resolved     _npmJsonOpts:
+40 silly resolved      { file: '/home/briannoguchi/.npm/notify-send/0.1.2/package/package.json',
+40 silly resolved        wscript: false,
+40 silly resolved        contributors: false,
+40 silly resolved        serverjs: false },
+40 silly resolved     _id: 'notify-send@0.1.2',
+40 silly resolved     _engineSupported: true,
+40 silly resolved     _npmVersion: '1.0.18',
+40 silly resolved     _nodeVersion: 'v0.4.9',
+40 silly resolved     _defaultsLoaded: true,
+40 silly resolved     dist:
+40 silly resolved      { shasum: '23c197bb1ea34805d6d9a77e61b40fd76e1bb80a',
+40 silly resolved        tarball: 'http://registry.npmjs.org/notify-send/-/notify-send-0.1.2.tgz' },
+40 silly resolved     directories: {},
+40 silly resolved     _shasum: '23c197bb1ea34805d6d9a77e61b40fd76e1bb80a',
+40 silly resolved     _from: 'notify-send@',
+40 silly resolved     _resolved: 'https://registry.npmjs.org/notify-send/-/notify-send-0.1.2.tgz',
+40 silly resolved     bugs: { url: 'https://github.com/bnoguchi/node-notify-send/issues' },
+40 silly resolved     readme: 'ERROR: No README data found!' } ]
+41 info install notify-send@0.1.2 into /usr/lib
+42 info installOne notify-send@0.1.2
+43 verbose lib/node_modules/notify-send unbuild
+44 verbose tar unpack /home/vagrant/.npm/notify-send/0.1.2/package.tgz
+45 silly lockFile a55a9caa-usr-lib-node-modules-notify-send tar:///usr/lib/node_modules/notify-send
+46 verbose lock tar:///usr/lib/node_modules/notify-send /home/vagrant/.npm/a55a9caa-usr-lib-node-modules-notify-send.lock
+47 silly lockFile 91788856-pm-notify-send-0-1-2-package-tgz tar:///home/vagrant/.npm/notify-send/0.1.2/package.tgz
+48 verbose lock tar:///home/vagrant/.npm/notify-send/0.1.2/package.tgz /home/vagrant/.npm/91788856-pm-notify-send-0-1-2-package-tgz.lock
+49 silly gunzTarPerm modes [ '775', '664' ]
+50 error Error: EACCES, mkdir '/usr/lib/node_modules/notify-send'
+50 error  { [Error: EACCES, mkdir '/usr/lib/node_modules/notify-send']
+50 error   errno: 3,
+50 error   code: 'EACCES',
+50 error   path: '/usr/lib/node_modules/notify-send',
+50 error   fstream_type: 'Directory',
+50 error   fstream_path: '/usr/lib/node_modules/notify-send',
+50 error   fstream_class: 'DirWriter',
+50 error   fstream_stack:
+50 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+50 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+50 error      'Object.oncomplete (fs.js:108:15)' ] }
+51 error Please try running this command again as root/Administrator.
+52 error System Linux 3.13.0-24-generic
+53 error command "/usr/bin/node" "/usr/bin/npm" "install" "--global" "notify-send"
+54 error cwd /opt/www/sunny
+55 error node -v v0.10.37
+56 error npm -v 1.4.28
+57 error path /usr/lib/node_modules/notify-send
+58 error fstream_path /usr/lib/node_modules/notify-send
+59 error fstream_type Directory
+60 error fstream_class DirWriter
+61 error code EACCES
+62 error errno 3
+63 error stack Error: EACCES, mkdir '/usr/lib/node_modules/notify-send'
+64 error fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+64 error fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+64 error fstream_stack Object.oncomplete (fs.js:108:15)
+65 verbose exit [ 3, true ]
