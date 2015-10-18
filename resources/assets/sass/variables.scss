@@ -1,0 +1,30 @@
+$yellow: #f8e908;
+$black: #263238;
+$red: #e74c3c;
+$offscreen-width: 5000px;
+$preview_width: 426px; /* 666:375 */
+$preview_height: 240px;
+
+@mixin shadow{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+@mixin borderRadius{
+	border-radius: 0 0 2px 2px;
+}
+@mixin disableClick{
+	pointer-events: none;
+	cursor: default;
+}
+
+.btn-black{
+	background-color: $black;
+}
+.btn-black:hover{
+	background-color: lighten($black, 15%);
+}
+.btn-red{
+	background-color: $red;
+}
+.btn-red:hover{
+	background-color: darken($red, 10%);
+}
