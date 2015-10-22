@@ -63,7 +63,7 @@ class GifPreviewController extends Controller {
             $duration = ceil($end_ms/1000) - floor($start_ms/1000);
             $uniq_id = uniqid();
             $palette = "/tmp/palette$uniq_id.png";
-			$filters = "fps=15,scale=320:-1:flags=lanczos";
+			$filters = "fps=15,scale=427:240:flags=lanczos";
 
 			exec("ffmpeg -v warning -ss $start_time -t $duration -i $source_video -vf \"$filters,palettegen\" -y $palette");
 			exec("ffmpeg -v warning -ss $start_time -t $duration -i $source_video -i $palette -lavfi \"$filters [x]; [x][1:v] paletteuse\" -y $output_file");
