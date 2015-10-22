@@ -15,3 +15,10 @@ Route::get('/episode/{season}/{episode}', 'GifPreviewController@downloadEpisode'
 Route::get('/gif/{season}/{episode}/{start_ms}-{end_ms}', 'GifPreviewController@downloadGif');
 Route::get('/webm/{season}/{episode}/{start_ms}-{end_ms}', 'GifPreviewController@downloadWebM');
 Route::post('/{file_type}/has-downloaded', 'GifPreviewController@fileHasDownloaded')->where('file_type', 'gif|webm');
+
+Route::post('/github-webhook/{key}', function($key){
+	if($key == env("WEBHOOK_KEY") && $_POST['payload']){
+		$git_dir = env("BASE_DIR") . "sunny/";
+		shell_exec("cd $git_dir && git reset --hard HEAD && git pull");
+	}
+});
