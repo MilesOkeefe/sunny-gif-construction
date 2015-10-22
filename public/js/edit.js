@@ -7,23 +7,20 @@ $(function(){
 	var timeline = $(".timeline").get(0);
 	var timelineBefore = $(".timeline-before").get(0);
 	var timelineAfter = $(".timeline-after").get(0);
-
 	var timelineWidth = $timeline.outerWidth();
-
 	var OG_timelineWidth = timelineWidth;
-
 	startTimeMS = (startTimeMS)? startTimeMS : 0;
 	endTimeMS = (endTimeMS)? endTimeMS : 3;
-
 	var OG_startTimeMS = startTimeMS;
 	var OG_endTimeMS = endTimeMS;
+	var pausedLoopID = null; //intervalID for the UI loop when the video is paused
 
 	video.oncanplay = function(){
 		videoCanPlay = true;
 	};
 
 	video.currentTime = startTimeMS/1000;
-	video.play();
+	playVideo();
 
 	video.addEventListener('timeupdate', function(){
 		if(video.currentTime > endTimeMS/1000){
@@ -45,9 +42,20 @@ $(function(){
 	}
 	updateTimeline();
 
+	function playVideo(){
+		video.play();
+		if(pausedLoopID) clearInterval(pausedLoopID);
+	}
+
+	function pauseVideo(){
+		video.pause();
+		pausedLoopID = setInterval(timelineChange, 15);
+
+	}
+
 	$video.click(function(){
 		if(!videoCanPlay) return false;
-		video.paused ? video.play() : video.pause();
+		video.paused ? playVideo() : pauseVideo();
 		if(!video.paused){
 			$videoOverlay.hide(); //hide overlay so that toggle button doesn't appear
 			updateTimeline();
@@ -79,7 +87,7 @@ $(function(){
 	$(".replay-btn").click(function(){
 		video.currentTime = startTimeMS/1000;
 		if(video.paused){
-			video.play();
+			playVideo();
 			updateTimeline();
 		}
 	});

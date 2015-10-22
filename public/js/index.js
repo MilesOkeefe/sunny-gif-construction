@@ -52,11 +52,9 @@ var season_10_quotes = [
 	"Dee, you bitch",
 	"I can't stop drinking now. I'll probably die!",
 	"And he made it clear to me that all of you are going to need to commit suicide",
-	"Good, uh, um, I'm a good person",
 	"It makes sense, don't be a bitch",
 	"This doesn't represent me",
 	"Oh god, don't be a dumb hungry bitch the entire time",
-	/* "Yeah, I botched it life", */
 	"I don't have online though"
 ];
 $(function(){
