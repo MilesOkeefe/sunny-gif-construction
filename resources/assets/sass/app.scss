@@ -139,8 +139,8 @@ html,body{ width:100%; height:100%; }
 						.results .quote-wrapper{
 							display:inline-block;
 							width:33.3%;
-							height:194px;
-							padding:8px;
+							height:138px;
+							padding:2px 4px;
 						}
 							.quote-wrapper .quote{
 								display: block;
@@ -152,6 +152,7 @@ html,body{ width:100%; height:100%; }
 								.quote img{
 									position:relative;
 									width:100%;
+									height:133px;
 									z-index: 1;
 								}
 								.quote .text-background{
