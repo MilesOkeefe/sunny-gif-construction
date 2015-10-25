@@ -48,7 +48,6 @@ var season_10_quotes = [
 	"You don't have to eat beak at all",
 	"Good fish, good solid fish?",
 	"That was the plan but I mean you know, we basically had already explained it to you",
-	"Dee, you bitch",
 	"I can't stop drinking now. I'll probably die!",
 	"It makes sense, don't be a bitch",
 	"This doesn't represent me",

@@ -84,7 +84,7 @@ class GifPreviewController extends Controller {
 			$start_str = "00:" . str_pad(floor(($start_ms/1000)/60), 2, '0', STR_PAD_LEFT) . ":" . str_pad(($start_ms/1000) % 60, 2, '0', STR_PAD_LEFT) . "." . $start_ms % 1000;
 			$end_str = "00:" . str_pad(floor(($end_ms/1000)/60), 2, '0', STR_PAD_LEFT) . ":" . str_pad(($end_ms/1000) % 60, 2, '0', STR_PAD_LEFT) . "." . $end_ms % 1000;
 
-            //if($filetype == "gif"){
+            if($filetype == "gif"){
 	            $uniq_id = uniqid();
 	            $palette = "/tmp/palette$uniq_id.png";
 				$filters = "fps=15,scale=427:240:flags=lanczos";
@@ -94,10 +94,11 @@ class GifPreviewController extends Controller {
 				$p_ex = shell_exec("ffmpeg -v warning -ss $start_str -t $duration -i $source_video -vf \"$filters,palettegen\" -y $palette");
 				$ex = shell_exec("ffmpeg -v warning -ss $start_str -i $source_video -to $end_str -i $palette -lavfi \"$filters [x]; [x][1:v] paletteuse\" -y $output_file");
 				//return "$p_ex\n$ex";
-				file_put_contents("/var/log/ffmpeg.log", "p:\n$p_ex\nex:\n$ex", FILE_APPEND);
-			//}else{
-			//	exec("ffmpeg -ss $start_str -i $source_video -to $end_str -vcodec copy $output_file");
-			//}
+				file_put_contents("/var/log/ffmpeg-gif.log", "p:\n$p_ex\nex:\n$ex\n", FILE_APPEND);
+			}else{
+				$webm_ex = shell_exec("ffmpeg -ss $start_str -i $source_video -to $end_str -vcodec copy $output_file");
+				file_put_contents("/var/log/ffmpeg.log", "webm:\n$webm_ex\n", FILE_APPEND);
+			}
         //}
        
         $name = "Always_Sunny_S$season" . "E" . str_pad($episode,2,'0',STR_PAD_LEFT) . "($start_str)($end_str).$filetype";

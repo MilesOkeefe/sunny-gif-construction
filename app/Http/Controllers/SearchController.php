@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller {
 
-	public function searchPage(Request $request, $query){
+	public function searchPage(Request $request, $query=null){
+		if(!$query) return view('pages.index');
 		$request->session()->put('last-query', $query);
 		return view('pages.index')->with(['query' => $query]);
 	}

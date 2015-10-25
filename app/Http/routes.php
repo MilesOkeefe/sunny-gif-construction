@@ -1,8 +1,7 @@
 <?php
 
-Route::get('/', function(){
-	return view('pages.index');
-});
+Route::get('/', 'SearchController@searchPage');
+Route::get('/search', 'SearchController@searchPage');
 Route::get('/search/{query}', 'SearchController@searchPage');
 
 Route::get('/thumbnail/{season}/{episode}/{start_ms}-{end_ms}', 'GifPreviewController@downloadThumbnail');
