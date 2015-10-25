@@ -2,16 +2,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class EditController extends Controller {
 
-	public function editPage($season, $episode, $start_ms, $end_ms){
+	public function editPage(Request $request, $season, $episode, $start_ms, $end_ms){
+		$last_query = $request->session()->get('last-query');
 		$FPS = 24;
 		$padding = 1*$FPS;
 		$duration = (($end_ms-$start_ms)/1000)*$FPS;
 		$TIMELINE_WIDTH_PX = 426;
 		$padding_width_px = ($TIMELINE_WIDTH_PX * $padding)/$duration;
 		$vars = [
+			'last_query' => $last_query,
 			'season' => $season,
 			'episode' => $episode,
 			'start_ms' => $start_ms,

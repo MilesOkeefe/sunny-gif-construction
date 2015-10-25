@@ -28,7 +28,7 @@ class GifPreviewController extends Controller {
     }
 
     public function downloadWebM(Request $request, $season, $episode, $start_ms, $end_ms){
-        $output_file = "/var/tmp/$season-$episode-$start_ms-$end_ms.webm";
+        /*$output_file = "/var/tmp/$season-$episode-$start_ms-$end_ms.webm";
         //if(!file_exists($output_file)){
             $ffmpeg = \FFMpeg\FFMpeg::create(array(
                 'ffmpeg.binaries'  => '/usr/bin/ffmpeg',
@@ -52,11 +52,11 @@ class GifPreviewController extends Controller {
         $name = "Always_Sunny_S$season" . "E" . str_pad($episode,2,'0',STR_PAD_LEFT) . "_$start_str:$end_str.webm";
 		$request->session()->put('webm-downloaded', "$season-$episode-$start_ms-$end_ms");
         if(!file_exists($output_file)) return -1;
-        return response()->download($output_file, $name);
+        return response()->download($output_file, $name);*/
     }
 
     public function downloadGif(Request $request, $season, $episode, $start_ms, $end_ms){
-    	$output_file = "/opt/www/data/test.gif";//"/var/tmp/$season-$episode-$start_ms-$end_ms.gif";
+    	/*$output_file = "/opt/www/data/test.gif";//"/var/tmp/$season-$episode-$start_ms-$end_ms.gif";
         //if(!file_exists($output_file)){
             $source_video = env("BASE_DIR") . "data/season_$season/video/$episode.webm";
             $start_time = max(floor($start_ms/1000), 0); //use max() to insure the start time isn't negative
@@ -68,10 +68,40 @@ class GifPreviewController extends Controller {
 			exec("ffmpeg -v warning -ss $start_time -t $duration -i $source_video -vf \"$filters,palettegen\" -y $palette");
 			exec("ffmpeg -v warning -ss $start_time -t $duration -i $source_video -i $palette -lavfi \"$filters [x]; [x][1:v] paletteuse\" -y $output_file");
         //}
-        $start_str = floor(($start_ms/1000)/60) . ":" . ($start_ms/1000) % 60;
-        $end_str = floor(($end_ms/1000)/60) . ":" . ($end_ms/1000) % 60;
+        $start_str = floor(($start_ms/1000)/60) . ":" . ($start_ms/1000) % 60 . "." . $start_ms % 1000;
+        $end_str = floor(($end_ms/1000)/60) . ":" . ($end_ms/1000) % 60 . "." . $end_ms % 1000;
         $name = "Always_Sunny_S$season" . "E" . str_pad($episode,2,'0',STR_PAD_LEFT) . "_$start_str:$end_str.gif";
         $request->session()->put('gif-downloaded', "$season-$episode-$start_ms-$end_ms");
+        if(!file_exists($output_file)) return -1;
+        return response()->download($output_file, $name);*/
+    }
+
+    public function downloadFile(Request $request, $filetype, $season, $episode, $start_ms, $end_ms){
+    	$output_file = "/var/tmp/$season-$episode-$start_ms-$end_ms.$filetype";
+        //if(!file_exists($output_file)){
+    		$video_folder = ($filetype == "gif")? "video" : "video_hq_webm";
+            $source_video = env("BASE_DIR") . "data/season_$season/$video_folder/$episode.webm";
+			$start_str = "00:" . str_pad(floor(($start_ms/1000)/60), 2, '0', STR_PAD_LEFT) . ":" . str_pad(($start_ms/1000) % 60, 2, '0', STR_PAD_LEFT) . "." . $start_ms % 1000;
+			$end_str = "00:" . str_pad(floor(($end_ms/1000)/60), 2, '0', STR_PAD_LEFT) . ":" . str_pad(($end_ms/1000) % 60, 2, '0', STR_PAD_LEFT) . "." . $end_ms % 1000;
+
+            //if($filetype == "gif"){
+	            $uniq_id = uniqid();
+	            $palette = "/tmp/palette$uniq_id.png";
+				$filters = "fps=15,scale=427:240:flags=lanczos";
+				$duration = ceil($end_ms/1000) - floor($start_ms/1000);
+
+
+				$p_ex = shell_exec("ffmpeg -v warning -ss $start_str -t $duration -i $source_video -vf \"$filters,palettegen\" -y $palette");
+				$ex = shell_exec("ffmpeg -v warning -ss $start_str -i $source_video -to $end_str -i $palette -lavfi \"$filters [x]; [x][1:v] paletteuse\" -y $output_file");
+				//return "$p_ex\n$ex";
+				file_put_contents("/var/log/ffmpeg.log", "p:\n$p_ex\nex:\n$ex", FILE_APPEND);
+			//}else{
+			//	exec("ffmpeg -ss $start_str -i $source_video -to $end_str -vcodec copy $output_file");
+			//}
+        //}
+       
+        $name = "Always_Sunny_S$season" . "E" . str_pad($episode,2,'0',STR_PAD_LEFT) . "($start_str)($end_str).$filetype";
+        $request->session()->put("$filetype-downloaded", "$season-$episode-$start_ms-$end_ms");
         if(!file_exists($output_file)) return -1;
         return response()->download($output_file, $name);
     }

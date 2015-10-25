@@ -39,7 +39,6 @@ jQuery.fn.setCaretPosition = function(caretPos){
 var season_10_quotes = [
 	"All right all right all right",
 	"LOOK AT ME WHEN YOU’RE TALKING TO ME",
-	"I am untethered and my rage knows no bounds",
 	"I'm a five star man",
 	"Oh cause Im playing both sides",
 	"Rip Wade Boggs",
@@ -51,7 +50,6 @@ var season_10_quotes = [
 	"That was the plan but I mean you know, we basically had already explained it to you",
 	"Dee, you bitch",
 	"I can't stop drinking now. I'll probably die!",
-	"And he made it clear to me that all of you are going to need to commit suicide",
 	"It makes sense, don't be a bitch",
 	"This doesn't represent me",
 	"Oh god, don't be a dumb hungry bitch the entire time",
@@ -84,7 +82,7 @@ $(function(){
 	$input.keypress(function(e){
 		if(e.which != 13){ //ignore enter key so that search code runs
 			var key = String.fromCharCode(e.which);
-			if(key.match(/[^a-zA-Z .,!?\d]/g)){ //only allow characters and common puncuation
+			if(key.match(/[^a-zA-Z .,!?'\d]/g)){ //only allow characters and common puncuation
 				e.preventDefault();
 			}
 		}

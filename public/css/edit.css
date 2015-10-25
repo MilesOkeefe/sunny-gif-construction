@@ -11,6 +11,13 @@
 .btn-red:hover {
   background-color: #d62c1a; }
 
+.btn-yellow {
+  background-color: #f8e908;
+  color: #263238; }
+
+.btn-yellow:hover {
+  background-color: #f4e507; }
+
 .content-wrapper {
   position: absolute;
   width: 100%;
@@ -26,61 +33,10 @@
   background-color: rgba(255, 255, 255, 0.5);
   height: 280px; }
 
-#timeline-value {
+.back-btn {
   position: absolute;
-  top: -43px; }
-
-#timeline-max {
-  position: absolute;
-  top: -25px; }
-
-.tool-row {
-  position: relative;
-  display: block;
-  width: 100%;
-  bottom: -20px; }
-
-.btn {
-  padding: 0px 15px;
-  border-radius: 0px; }
-
-i.left {
-  margin-right: 5px; }
-
-.replay-btn {
-  background-color: #263238; }
-
-.dl-btns {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  /*background-color: $red;*/ }
-
-.dl-btns .btn:first-child {
-  margin-right: 8px; }
-
-.dl-btns .btn {
-  position: relative; }
-
-.dl-webm-btn {
-  color: #e74c3c;
-  box-shadow: 0 2px 5px 0 rgba(231, 76, 60, 0.18), 0 2px 10px 0 rgba(231, 76, 60, 0.53);
-  background-color: #FEFEFE; }
-
-.dl-webm-btn:hover {
-  background-color: #FEFEFE;
-  box-shadow: 0 3px 5px 0 rgba(231, 76, 60, 0.8), 0 3px 10px 0 rgba(231, 76, 60, 0.8); }
-
-.dl-btns .btn.loading:before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-image: url("/images/btn_loading.gif");
-  opacity: 0.4;
-  cursor: progress; }
+  top: -60px;
+  left: -95px; }
 
 .gif-wrapper {
   position: relative;
@@ -277,19 +233,52 @@ input[type='range']::-webkit-slider-thumb {
   margin: 0 auto;
   padding: 10px; }
 
-.captions-area {
+.tool-row {
+  position: relative;
+  display: block;
+  width: 100%;
+  bottom: -20px; }
+
+.btn {
+  padding: 0px 15px;
+  border-radius: 0px;
+  line-height: 38px; }
+
+i.left {
+  margin-right: 5px; }
+
+.replay-btn {
+  background-color: #263238; }
+
+.dl-btns {
   position: absolute;
-  bottom: 10px;
   right: 0px;
-  cursor: pointer; }
+  top: 0px; }
 
-.video-base h5 {
-  display: inline-block; }
+.dl-btns .btn:first-child {
+  margin-right: 8px; }
 
-.video-base .add-caption-btn {
-  display: inline-block;
-  float: none;
-  margin-left: 5px;
-  margin-top: -5px; }
+.dl-btns .btn {
+  position: relative; }
+
+.dl-webm-btn {
+  color: #e74c3c;
+  box-shadow: 0 2px 5px 0 rgba(231, 76, 60, 0.18), 0 2px 10px 0 rgba(231, 76, 60, 0.53);
+  background-color: #FEFEFE; }
+
+.dl-webm-btn:hover {
+  background-color: #FEFEFE;
+  box-shadow: 0 3px 5px 0 rgba(231, 76, 60, 0.8), 0 3px 10px 0 rgba(231, 76, 60, 0.8); }
+
+.dl-btns .btn.loading:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/btn_loading.gif");
+  opacity: 0.4;
+  cursor: progress; }
 
 /*# sourceMappingURL=edit.css.map */

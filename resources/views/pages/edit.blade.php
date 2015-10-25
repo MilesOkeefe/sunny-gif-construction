@@ -7,8 +7,7 @@
 @section('body')
 	<div class="content-wrapper">
 		<div class="edit-area">
-			<div id="timeline-value"></div>
-			<div id="timeline-max"></div>
+			<a class="btn btn-yellow back-btn" href="/search/{{ $last_query }}"><i class="material-icons left">keyboard_backspace</i>Back</a>
 			<div class="gif-wrapper">
 				<div class="video-overlay">
 					<div class="toggle-btn pause-btn">
@@ -38,10 +37,6 @@
 									<a class="btn btn-red dl-webm-btn" href="/webm/{{ $season }}/{{ $episode }}/{{ $start_ms }}-{{ $end_ms }}"><i class="material-icons left">file_download</i> WebM</a>
 								</div>
 							</div>
-							{{--<div class="captions-area">
-								<h5>Captions</h5>
-								<a class="btn-floating btn-medium waves-effect waves-light btn-red add-caption-btn"><i class="material-icons">add</i></a>
-							</div>--}}
 						</div>
 					</div>
 				</div>

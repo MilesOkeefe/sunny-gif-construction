@@ -28,3 +28,10 @@ $preview_height: 240px;
 .btn-red:hover{
 	background-color: darken($red, 10%);
 }
+.btn-yellow{
+	background-color: $yellow;
+	color:$black;
+}
+.btn-yellow:hover{
+	background-color: darken($yellow, 1%);
+}
