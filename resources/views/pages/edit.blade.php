@@ -7,7 +7,7 @@
 @section('body')
 	<div class="content-wrapper">
 		<div class="edit-area">
-			<a class="btn btn-yellow back-btn" href="/search/{{ $last_query }}"><i class="material-icons left">keyboard_backspace</i>Back</a>
+			<a class="btn btn-yellow back-btn" href="/search/"><i class="material-icons left">keyboard_backspace</i>Back</a>
 			<div class="gif-wrapper">
 				<div class="video-overlay">
 					<div class="toggle-btn pause-btn">

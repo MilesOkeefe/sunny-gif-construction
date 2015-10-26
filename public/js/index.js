@@ -40,19 +40,13 @@ var season_10_quotes = [
 	"All right all right all right",
 	"LOOK AT ME WHEN YOU’RE TALKING TO ME",
 	"I'm a five star man",
-	"Oh cause Im playing both sides",
-	"Rip Wade Boggs",
-	"Gimme the hotdogx baby",
-	"You gonna blow the thin mint thing?",
-	"I got all numbers",
-	"You don't have to eat beak at all",
-	"Good fish, good solid fish?",
-	"That was the plan but I mean you know, we basically had already explained it to you",
-	"I can't stop drinking now. I'll probably die!",
-	"It makes sense, don't be a bitch",
 	"This doesn't represent me",
+	"Good fish, good solid fish?",
 	"Oh god, don't be a dumb hungry bitch the entire time",
-	"I don't have online though"
+	"It makes sense, don't be a bitch",
+	"I don't have online though",
+	"He's gonna put all the brains in my head", /* subtitled */
+	"I'm playing both sides", /* cut off */
 ];
 $(function(){
 	var $input = $(".search-input");
@@ -133,7 +127,10 @@ $(function(){
 	var fuse = new Fuse(subtitles, { keys: ['text'], maxPatternLength:255, threshold:0.3 });
 	function search(){
 		var query = $input.text();
-		history.pushState(null, null, '/search/' + encodeURIComponent(query).replace(/\%20/g, '+'));
+		var query_str = encodeURIComponent(query).replace(/\%20/g, '+');
+		history.pushState(null, null, '/search/' + query_str);
+		Cookies.remove('last-query');
+		Cookies.set('last-query', query_str);
 		$input.parent().addClass('autofilled');
 		var $results = $(".search-results");
 		$results.addClass('active loading');
@@ -143,7 +140,7 @@ $(function(){
 		$results_container.empty();
 
 		var search_result = fuse.search(query);
-		console.debug(search_result);
+		//console.debug(search_result);
 		$results.removeClass('loading');
 		if(search_result.length > 0){
 			search_result = search_result.slice(0, 30); //limit to 30 quotes

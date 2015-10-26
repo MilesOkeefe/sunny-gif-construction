@@ -50,8 +50,22 @@ $(function(){
 	function pauseVideo(){
 		video.pause();
 		pausedLoopID = setInterval(timelineChange, 15);
-
 	}
+
+	timeline.addEventListener("change", function(){
+		var time = OG_startTimeMS + timeline.value/426;
+		video.currentTime = time/1000; //update the video time
+		//console.log("change");
+	});
+
+	/*$(".timeline").mousedown(function(e){
+		var parentOffset = $(this).parent().offset();
+   		var relX = e.pageX - parentOffset.left;
+		console.log("mousedown: " + relX);
+		video.pause();
+		timeline.value = relX;
+		video.play();
+	});*/
 
 	$video.click(function(){
 		if(!videoCanPlay) return false;
@@ -92,7 +106,6 @@ $(function(){
 		}
 	});
 
-	
 	function timelineChange(){
 		var TIME_TO_PX = 1;//1.6; //ratio to convert time to px on timeline elements
 		var beforeLeft = timelineBefore.value;
@@ -118,11 +131,6 @@ $(function(){
 		$(".dl-webm-btn").attr('href', "/webm/" + new_url_end);
 		history.replaceState(null, null, "/edit/" + new_url_end);
 	}
-
-	timeline.addEventListener("change", function(){
-		var time = OG_startTimeMS + timeline.value/24*1000;
-		video.currentTime = time/1000; //update the video time
-	});
 
 	function checkGIFDownload(){
 		$.post('/gif/has-downloaded', {season:season, episode:episode, start_ms:startTimeMS, end_ms:endTimeMS})
@@ -156,4 +164,5 @@ $(function(){
 		setTimeout(checkWebMDownload(), 2000);
 	});
 
+	$(".back-btn").attr('href', '/search/' + Cookies.get('last-query'));
 });

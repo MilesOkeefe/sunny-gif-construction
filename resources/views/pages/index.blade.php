@@ -9,9 +9,11 @@
 		<div class="hero valign">
 			<div class="hero-background"></div>
 			<div class="search-area">
-				<div class="search-wrapper">
-					<div class="input-wrapper {{ !empty($query)? 'interacted' : '' }}">
-						<span class="search-input" contenteditable="true">{{ !empty($query)? urldecode($query) : 'Type any quote from Season 10' }}</span>
+				<div class="search-overflow-wrapper">
+					<div class="search-wrapper">
+						<div class="input-wrapper {{ !empty($query)? 'interacted' : '' }}">
+							<span class="search-input" contenteditable="true">{{ !empty($query)? urldecode($query) : 'Type any quote from Season 10' }}</span>
+						</div>
 					</div>
 				</div>
 				<div class="area-below-search">
